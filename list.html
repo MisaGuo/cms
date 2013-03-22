@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CMS</title>
+<script src="resource/common/jsoul.base.js?ver.1.0.0" type="text/javascript"></script>
+<script type="text/javascript">
+//<!--
+var ServerLevel =1,ResponseInfo =null;
+//-->
+</script>
+<script src="resource/cms/script/jsoul.cms.js?ver.1.0.0" type="text/javascript"></script>
+<link href="resource/cms/skins/admin.css?ver.1.0.0" rel="stylesheet" type="text/css" />
+<script src="resource/cms/script/server/user.gameserver.js?ver.1.0.0" type="text/javascript"></script>
+</head>
+<body>
+	<!-- position start -->
+	<h1><a href="###" title="CMS Root">CMS Root</a> &raquo;
+		<a href="###" title="Server Config">Server Config</a> &raquo; 
+	    Server	</h1>
+	<!-- position end -->
+	<!-- navigator start -->
+	<ul class="navigator">
+		    <li><a href="javascript:void(0);" class="choose" title="Game Server"><span>Server</span></a></li>
+		    <li><a href="###" title="Game Category"><span>Category</span></a></li>
+		    <li><a href="###" title="Game Room"><span>Room</span></a></li>
+		    <li><a href="###" title="Origin Server"><span>Origin Server</span></a></li>
+		</ul>
+	<!-- navigator end -->
+    <div class="main" id="MainBox">
+			<form id="AddForm" action="?" method="post" class="hidden">
+		<table border="0" cellspacing="1" cellpadding="0" class="default edit">
+			<caption>Add GameServer</caption>
+			<colgroup></colgroup>
+			<tbody>
+				<tr>
+					<th>Server Name:</th>
+					<td><input name="title" type="text" maxlength="128" class="input" /></td>
+					<th>Server Domain:</th>
+					<td><input name="domain" type="text" maxlength="512" class="input" /></td>
+				</tr>
+				<tr>
+					<th><label for="isActive">IsActive：</label></th>
+					<td><input name="isActive" id="isActive" type="checkbox" value="True" /></td>
+					<th>Max User:</th>
+					<td><input name="maxLimit" type="text" maxlength="11" class="input" /></td>
+				</tr>
+				<tr>
+					<th>Introduction:</th>
+					<td colspan="3"><textarea name="description" cols="88" rows="8" reqire="maxsize" maxlength="2000" class="textarea"></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="contorl">
+			<input type="submit" value="Add" class="button" />
+			<input type="hidden" name="act" value="add" />
+		</div>
+	</form>
+	<form action="?" method="post">
+		<dl class="page"><dd><p>2</p></dd><dd><p>1/1</p></dd><dt>&lt;</dt><dt>&laquo;</dt><dt>&lsaquo;</dt><dt class="choosed">1</dt><dt>&rsaquo;</dt><dt>&raquo;</dt><dt>&gt;</dt><dd>Page <input type="text" name="pageNum" value="1" maxlength="5" onfocus="this.select()" /></dd><dd>/ Avg <input type="text" name="maxPageSize" value="25" maxlength="4" onfocus="this.select()" /></dd></dl>
+		<input type="submit" name="act" value="redirct" class="hidden" />
+	</form>
+	<table border="0" cellspacing="1" cellpadding="0" class="default category">
+		<caption>Game Server</caption>
+		<colgroup>
+		<col style="width:30px" />
+		<col span="5" />
+		<col span="2" style="width:30px" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th><a href="/server/gameserver/1/isActive/ASC" title="Act Sort">Act</a></th>
+				<th><a href="/server/gameserver/1/title/ASC" title="Game Server Sort">ServerName</a></th>
+				<th><a href="/server/gameserver/1/domain/ASC" title="Game Server Sort">ServerDomain</a></th>
+				<th><a href="/server/gameserver/1/maxLimit/ASC" title="Max User Sort">MaxUser</a></th>
+				<th><a href="/server/gameserver/1/createDate/ASC" title="Create Time Sort">CreateTime</a></th>
+				<th>GameCategories</th>
+				<th>Edit</th>
+				<th>Del</th>
+			</tr>
+		</thead>
+		<tbody id="CategoryBox">
+					<tr>
+				<td><a href="?" rel="updateActive" rev="1" title="Edit Active" class="button IsActive true"><ins>Act</ins></a></td>
+				<th><a href="?" rel="getEditModel" rev="1" title="Set Server 01">Server 01</a></th>
+				<td>r1.msp.com:8081</td>
+				<td>3000</td>
+				<td>2011-03-22 05:46</td>
+				<td><a href="/server/gameservercategory/1/default/DESC/1" title="View Categories">View</a></td>
+				<td><a href="?" rel="getEditModel" rev="1" title="Setting" class="button Edit"><ins>Setting</ins></a></td>
+				<td><a href="?" rel="delete" rev="1" title="Delete" class="button Delete"><ins>Delete</ins></a></td>
+			</tr>
+					<tr class="spacing">
+				<td><a href="?" rel="updateActive" rev="2" title="Edit Active" class="button IsActive false"><ins>Act</ins></a></td>
+				<th><a href="?" rel="getEditModel" rev="2" title="Set Server 02">Server 02</a></th>
+				<td>r2.gopoker.onegot.com</td>
+				<td>3000</td>
+				<td>2011-03-22 05:51</td>
+				<td><a href="/server/gameservercategory/1/default/DESC/2" title="View Categories">View</a></td>
+				<td><a href="?" rel="getEditModel" rev="2" title="Setting" class="button Edit"><ins>Setting</ins></a></td>
+				<td><a href="?" rel="delete" rev="2" title="Delete" class="button Delete"><ins>Delete</ins></a></td>
+			</tr>
+				</tbody>
+	</table>
+	<form action="?" method="post">
+		<dl class="page"><dd><p>2</p></dd><dd><p>1/1</p></dd><dt>&lt;</dt><dt>&laquo;</dt><dt>&lsaquo;</dt><dt class="choosed">1</dt><dt>&rsaquo;</dt><dt>&raquo;</dt><dt>&gt;</dt><dd>Page <input type="text" name="pageNum" value="1" maxlength="5" onfocus="this.select()" /></dd><dd>/ Avg <input type="text" name="maxPageSize" value="25" maxlength="4" onfocus="this.select()" /></dd></dl>
+		<input type="submit" name="act" value="redirct" class="hidden" />
+	</form>
+	<div id="EditLay">
+		<form id="UpdateForm" action="?" method="post">
+		<table border="0" cellspacing="1" cellpadding="0" class="default edit">
+			<caption>
+			<span><ins>Close</ins></span>Edit Game Server
+			</caption>
+			<colgroup>
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>Server Name:</th>
+					<td><input name="title" type="text" maxlength="128" class="input" /></td>
+					<th>Server Domain:</th>
+					<td><input name="domain" type="text" maxlength="512" class="input" /></td>
+				</tr>
+				<tr>
+					<th><label for="isActive2">IsActive：</label></th>
+					<td><input name="isActive" id="isActive2" type="checkbox" value="True" /></td>
+					<th>Max User:</th>
+					<td><input name="maxLimit" type="text" maxlength="11" class="input" /></td>
+				</tr>
+				<tr>
+					<th>Create Time:</th>
+					<td colspan="3"><input name="createDate" type="text" readonly="readonly" class="input" /></td>
+				</tr>
+				<tr>
+					<th>Introduction:</th>
+					<td colspan="3"><textarea name="description" cols="88" rows="8" reqire="maxsize" maxlength="2000" class="textarea"></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="contorl">
+			<input type="submit" value="Save" class="button" />
+			<input type="reset" value="Reset" class="button" />
+			<input type="button" value="Cancel" name="cancel" class="button" />
+			<input type="hidden" name="act" value="update" />
+			<input type="hidden" name="id" />
+		</div>
+		</form>
+	</div>
+    </div>
+</body>
+</html>
